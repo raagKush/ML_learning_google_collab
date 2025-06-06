@@ -34,3 +34,11 @@ print("r2_train = ", metrics.r2_score(y_train,y_train_pred))
 
 print("r2_test = ", metrics.r2_score(y_test,y_pred))
 print("mse = ", metrics.mean_squared_error(y_test, y_pred))
+
+feature_list = list(X.columns)
+feature_importances = pd.Series(model.feature_importances_, index = feature_list).sort_values(ascending= False)
+print(feature_importances)
+
+from matplotlib import pyplot as plt
+
+plt.scatter(df['Duration'].values,df['Calories'].values)
